@@ -4,7 +4,7 @@ ctx.font = "20px Helvetica";
 
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
-var winningScore = 3;
+var winningScore = 11;
 var showWinScreen = false;
 
 var playerX = 0;
@@ -22,8 +22,8 @@ var compScore = 0;
 var ballX = canvasWidth / 2;
 var ballY = canvasHeight / 2;
 var ballRadius = 10;
-var ballXspeed = 5;
-var ballYspeed = 5;
+var ballXspeed = 2;
+var ballYspeed = 2;
 
 
 window.onload = function() {
@@ -72,6 +72,11 @@ function resetBall() {
   ballX = canvasWidth / 2;
   ballY = canvasHeight / 2;
   ballXspeed = -ballXspeed;
+  ballYspeed = getRandomIntInclusive(1, 3);
+  console.log("resetBall -> ballYspeed", ballYspeed)
+  var plusOrminus = Math.random() < 0.5 ? 1 : -1;
+  ballYspeed = ballYspeed * plusOrminus;
+  console.log(plusOrminus);
 }
 
 
@@ -82,4 +87,13 @@ function computerPaddle() {
   if (ballY >= compY + compHeight - 30) {
     compY += 6;
   }
+}
+
+
+
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; 
 }

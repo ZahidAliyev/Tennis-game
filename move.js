@@ -15,11 +15,12 @@ function move() {
   };
 
   if (ballX - ballRadius <= 0) {
-    playerScore++;
+    compScore++;
+
     resetBall();
   };
   if(ballX + ballRadius >= canvasWidth) {
-    compScore++;
+    playerScore++;
     resetBall();
   };
   if (ballY - ballRadius <= 0 || ballY + ballRadius >= canvasHeight) {
@@ -28,6 +29,6 @@ function move() {
 
 
 
-  // computerPaddle();
+  computerPaddle();
   draw();
 }

@@ -34,6 +34,7 @@ window.onload = function() {
   requestAnimationFrame(loop);
   canvas.addEventListener("mousedown", clickToContinue);
   canvas.addEventListener("mousemove", handleMouse);
+
 };
 // functions
 function draw() {

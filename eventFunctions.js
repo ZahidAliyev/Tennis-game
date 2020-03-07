@@ -1,4 +1,7 @@
 function clickToContinue(e) {
+    // setFormat();
+    var	someSound	= new Audio("sounds/somemusic.mp3");
+    someSound.play();
   if (showWinScreen) {
     playerScore = 0;
     compScore = 0;

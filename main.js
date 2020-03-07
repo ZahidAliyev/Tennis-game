@@ -25,6 +25,9 @@ var ballRadius = 10;
 var ballXspeed = 2;
 var ballYspeed = 2;
 
+const table = new Image();
+table.src = "images/table.jpg";
+
 
 window.onload = function() {
   function loop() {
@@ -38,7 +41,8 @@ window.onload = function() {
 };
 // functions
 function draw() {
-  makeReactangle(0, 0, canvasWidth, canvasHeight, "black");
+  // makeReactangle(0, 0, canvasWidth, canvasHeight, "black");
+  ctx.drawImage(table, 0, 0);
   if (showWinScreen) {
     ctx.fillStyle = "white";
     if (playerScore >= winningScore) {

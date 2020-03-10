@@ -5,14 +5,14 @@ function move() {
     pushSound.play();
     let collidePoint = (ballY - (playerY + playerHeight/2));
     ballXspeed = -ballXspeed;
-    ballYspeed = collidePoint * 0.23;
+    ballYspeed = collidePoint * 0.35;
 
   };
   if (ballX + ballRadius >= compX - compWidth && ballY >= compY && ballY <= compY+ compHeight) {
     pushSound.play();
     let collidePointAi = (ballY - (compY + compHeight/2));
     ballXspeed = -ballXspeed;
-    ballYspeed = collidePointAi * 0.23;
+    ballYspeed = collidePointAi * 0.35;
 
   };
 
@@ -34,4 +34,5 @@ function move() {
 
   computerPaddle();
   draw();
+
 }

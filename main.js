@@ -22,8 +22,8 @@ var compScore = 0;
 var ballX = canvasWidth / 2;
 var ballY = canvasHeight / 2;
 var ballRadius = 10;
-var ballXspeed = 2;
-var ballYspeed = 2;
+var ballXspeed = 5;
+var ballYspeed = 5;
 
 const table = new Image();
 table.src = "images/table.jpg";
@@ -56,7 +56,8 @@ function draw() {
     }
     ctx.fillText("Click to continue", 350, 250);
 
-
+    ballXspeed = 0;
+    ballYspeed = 0;
     return;
 
     
@@ -77,7 +78,7 @@ function resetBall() {
   ballX = canvasWidth / 2;
   ballY = canvasHeight / 2;
   ballXspeed = -ballXspeed;
-  ballYspeed = getRandomIntInclusive(1, 3);
+  ballYspeed = getRandomIntInclusive(4, 6);
   console.log("resetBall -> ballYspeed", ballYspeed)
   var plusOrminus = Math.random() < 0.5 ? 1 : -1;
   ballYspeed = ballYspeed * plusOrminus;
@@ -87,10 +88,10 @@ function resetBall() {
 
 function computerPaddle() {
   if (ballY <= compY + 30) {
-    compY -= 6;
+    compY -= 10;
   }
   if (ballY >= compY + compHeight - 30) {
-    compY += 6;
+    compY += 10;
   }
 }
 

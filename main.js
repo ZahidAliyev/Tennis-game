@@ -4,7 +4,7 @@ ctx.font = "20px Helvetica";
 
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
-var winningScore = 11;
+var winningScore = 2;
 var showWinScreen = false;
 
 var playerX = 0;

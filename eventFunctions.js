@@ -6,6 +6,8 @@ function clickToContinue(e) {
     playerScore = 0;
     compScore = 0;
     showWinScreen = false;
+    ballXspeed = 5;
+    ballYspeed = 5;
   }
 }
 function handleMouse(e) {

@@ -79,10 +79,13 @@ function resetBall() {
   ballY = canvasHeight / 2;
   ballXspeed = -ballXspeed;
   ballYspeed = getRandomIntInclusive(4, 6);
-  console.log("resetBall -> ballYspeed", ballYspeed)
-  var plusOrminus = Math.random() < 0.5 ? 1 : -1;
+  ballXspeed = getRandomIntInclusive(4, 6);
+
+
+  let plusOrminus = Math.random() < 0.5 ? 1 : -1;
+  console.log("resetBall -> plusOrminus", plusOrminus)
   ballYspeed = ballYspeed * plusOrminus;
-  console.log(plusOrminus);
+
 }
 
 

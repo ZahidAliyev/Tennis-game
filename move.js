@@ -1,4 +1,5 @@
-function move() {
+function ballMove() {
+  
   ballX += ballXspeed;
   ballY += ballYspeed;
   if (ballX - ballRadius <= playerWidth && ballY >= playerY && ballY <= playerY+ playerHeight) {
@@ -6,6 +7,8 @@ function move() {
     let collidePoint = (ballY - (playerY + playerHeight/2));
     ballXspeed = -ballXspeed;
     ballYspeed = collidePoint * 0.35;
+    ballXspeed += ballXspeed*0.1;
+    console.log("move -> ballXspeed", ballXspeed)
 
   };
   if (ballX + ballRadius >= compX - compWidth && ballY >= compY && ballY <= compY+ compHeight) {
@@ -13,6 +16,8 @@ function move() {
     let collidePointAi = (ballY - (compY + compHeight/2));
     ballXspeed = -ballXspeed;
     ballYspeed = collidePointAi * 0.35;
+    ballXspeed += ballXspeed*0.1;
+    console.log("move -> ballXspeed", ballXspeed)
 
   };
 
@@ -29,9 +34,12 @@ function move() {
   if (ballY - ballRadius <= 0 || ballY + ballRadius >= canvasHeight) {
     ballYspeed = -ballYspeed;
   };
+}
 
+function move() {
 
-
+  
+  ballMove()
   computerPaddle();
   draw();
 

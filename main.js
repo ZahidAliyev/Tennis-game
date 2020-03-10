@@ -22,8 +22,13 @@ var compScore = 0;
 var ballX = canvasWidth / 2;
 var ballY = canvasHeight / 2;
 var ballRadius = 10;
+var xDirection = Math.random() < 0.5 ? 1 : -1;
 var ballXspeed = 5;
+ballXspeed = ballXspeed * xDirection;
+
+var yDirection = Math.random() < 0.5 ? 1 : -1;
 var ballYspeed = 5;
+ballYspeed = ballYspeed * yDirection;
 
 const table = new Image();
 table.src = "images/table.jpg";

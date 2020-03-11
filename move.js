@@ -6,6 +6,7 @@ function computerPaddle() {
     compY += 10;
   }
 }
+
 function resetBall() {
   if (playerScore >= winningScore || compScore >= winningScore) {
     showWinScreen = true;
@@ -20,11 +21,12 @@ function resetBall() {
   console.log("resetBall -> plusOrminus", plusOrminus);
   ballYspeed = ballYspeed * plusOrminus;
 }
+
 function ballMove() {
   
   ballX += ballXspeed;
   ballY += ballYspeed;
-  if (ballX - ballRadius <= playerWidth && ballY >= playerY && ballY <= playerY+ playerHeight) {
+  if (ballX - ballRadius <= playerX + playerWidth && ballY >= playerY && ballY <= playerY+ playerHeight) {
     pushSound.play();
     let collidePoint = (ballY - (playerY + playerHeight/2));
     ballXspeed = -ballXspeed;

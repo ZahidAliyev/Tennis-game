@@ -7,13 +7,13 @@ const canvasHeight = canvas.height;
 var winningScore = 2;
 var showWinScreen = false;
 
-var playerX = 0;
+var playerX = canvasWidth*0.05;
 var playerY = 250;
 var playerWidth = 10;
 var playerHeight = 100;
 var playerScore = 0;
 
-var compX = 790;
+var compX = canvasWidth*0.95;
 var compY = 250;
 var compWidth = 10;
 var compHeight = 100;

@@ -19,9 +19,12 @@ var compWidth = 10;
 var compHeight = 100;
 var compScore = 0;
 
+//Ball parametrs
 var ballX = canvasWidth / 2;
 var ballY = canvasHeight / 2;
 var ballRadius = 10;
+
+//beginning ball random directions
 var xDirection = Math.random() < 0.5 ? 1 : -1;
 var ballXspeed = 5;
 ballXspeed = ballXspeed * xDirection;

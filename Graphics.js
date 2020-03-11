@@ -29,6 +29,7 @@ function makeReactangle(topX, topY, width, height, color) {
   function draw() {
     // makeReactangle(0, 0, canvasWidth, canvasHeight, "black");
     ctx.drawImage(table, 0, 0);
+
     if (showWinScreen) {
       ctx.fillStyle = "white";
       if (playerScore >= winningScore) {
@@ -47,6 +48,7 @@ function makeReactangle(topX, topY, width, height, color) {
     makeReactangle(compX, compY, compWidth, compHeight, "white");
   
     drawBall(ballX, ballY, ballRadius, 0, Math.PI * 2, true, "red", "white");
+    // ctx.drawImage(ballImage, ballX-10, ballY-10);
     ctx.fillStyle = "white";
     ctx.fillText(`Player Score: ${playerScore}`, 100, 100);
     ctx.fillText(`Computer Score: ${compScore}`, 500, 100);

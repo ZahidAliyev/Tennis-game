@@ -38,6 +38,7 @@ ballYspeed = ballYspeed * yDirection;
 window.onload = function() {
   function loop() {
     move();
+    someSound.play();
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);

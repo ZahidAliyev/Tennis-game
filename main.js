@@ -30,8 +30,6 @@ var yDirection = Math.random() < 0.5 ? 1 : -1;
 var ballYspeed = 5;
 ballYspeed = ballYspeed * yDirection;
 
-const table = new Image();
-table.src = "images/table.jpg";
 
 
 window.onload = function() {
@@ -40,74 +38,17 @@ window.onload = function() {
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
+  // setFormat();
+  
+  someSound.play();
+  
   canvas.addEventListener("mousedown", clickToContinue);
   canvas.addEventListener("mousemove", handleMouse);
-
 };
-// functions
-function draw() {
-  // makeReactangle(0, 0, canvasWidth, canvasHeight, "black");
-  ctx.drawImage(table, 0, 0);
-  if (showWinScreen) {
-    ctx.fillStyle = "white";
-    if (playerScore >= winningScore) {
-      ctx.fillText("Player Won", 350, 200);
-
-    }
-    if (compScore >= winningScore) {
-      ctx.fillText("ComputerWon", 350, 200);
-      
-      
-    }
-    ctx.fillText("Click to continue", 350, 250);
-
-    ballXspeed = 0;
-    ballYspeed = 0;
-    return;
-
-    
-  }
-  makeReactangle(playerX, playerY, playerWidth, playerHeight, "white");
-  makeReactangle(compX, compY, compWidth, compHeight, "white");
-
-  drawBall(ballX, ballY, ballRadius, 0, Math.PI * 2, true, "red", "white");
-  ctx.fillText(`Score: ${playerScore}`, 100, 100);
-  ctx.fillText(`Score: ${compScore}`, 600, 100);
-}
-
-function resetBall() {
-  if (playerScore >= winningScore || compScore >= winningScore) {
-    showWinScreen = true;
-    
-  }
-  ballX = canvasWidth / 2;
-  ballY = canvasHeight / 2;
-  ballXspeed = -ballXspeed;
-  ballYspeed = getRandomIntInclusive(4, 6);
-  ballXspeed = getRandomIntInclusive(4, 6);
-
-
-  let plusOrminus = Math.random() < 0.5 ? 1 : -1;
-  console.log("resetBall -> plusOrminus", plusOrminus)
-  ballYspeed = ballYspeed * plusOrminus;
-
-}
-
-
-function computerPaddle() {
-  if (ballY <= compY + 30) {
-    compY -= 10;
-  }
-  if (ballY >= compY + compHeight - 30) {
-    compY += 10;
-  }
-}
-
-
 
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; 
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }

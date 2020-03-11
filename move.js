@@ -1,3 +1,25 @@
+function computerPaddle() {
+  if (ballY <= compY + 30) {
+    compY -= 10;
+  }
+  if (ballY >= compY + compHeight - 30) {
+    compY += 10;
+  }
+}
+function resetBall() {
+  if (playerScore >= winningScore || compScore >= winningScore) {
+    showWinScreen = true;
+  }
+  ballX = canvasWidth / 2;
+  ballY = canvasHeight / 2;
+  ballXspeed = -ballXspeed;
+  ballYspeed = getRandomIntInclusive(4, 6);
+  ballXspeed = getRandomIntInclusive(4, 6);
+
+  let plusOrminus = Math.random() < 0.5 ? 1 : -1;
+  console.log("resetBall -> plusOrminus", plusOrminus);
+  ballYspeed = ballYspeed * plusOrminus;
+}
 function ballMove() {
   
   ballX += ballXspeed;

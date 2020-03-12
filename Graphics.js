@@ -39,6 +39,7 @@ function makeReactangle(topX, topY, width, height, color) {
         ctx.fillText("ComputerWon", 350, 200);
       }
       ctx.fillText("Click to continue", 350, 250);
+      
   
       ballXspeed = 0;
       ballYspeed = 0;

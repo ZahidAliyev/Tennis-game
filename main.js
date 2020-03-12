@@ -1,10 +1,10 @@
 const canvas = document.querySelector("#canvas");
 const ctx = canvas.getContext("2d");
-ctx.font = "20px Helvetica";
+ctx.font = " 30px Helvetica";
 
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
-var winningScore = 2;
+var winningScore = 1;
 var showWinScreen = false;
 
 var startGame = true;
@@ -36,16 +36,26 @@ var ballYspeed = 5;
 ballYspeed = ballYspeed * yDirection;
 
 window.onload = function() {
-  if (startGame === true) {
-    console.log("window.onload -> startGame", startGame)
-    canvas.addEventListener("mousedown", startOnePlayer);
-    ctx.drawImage(table, 0, 0);
-    ctx.fillText("1 Player", canvasWidth / 2 - 50, canvasHeight / 2, 100);
-    ctx.fillText("2 Players", canvasWidth / 2 - 50, canvasHeight / 2 + 50, 100);
+  function loop() {
+    if (startGame === true) {
+      console.log("window.onload -> startGame", startGame)
+      canvas.addEventListener("mousedown", startOnePlayer);
+      ctx.drawImage(table, 0, 0);
+      ctx.fillStyle = "white";
+      ctx.fillText("1 Player", canvasWidth / 2 - 50, canvasHeight / 2, 100);
+      ctx.fillText("2 Players", canvasWidth / 2 - 50, canvasHeight / 2 + 50, 100);
+    } else {
+      canvas.addEventListener("mousedown", clickToContinue);
+      canvas.addEventListener("mousedown", backToMenu);
+      move();
+      // someSound.play(); 
+    }
+    requestAnimationFrame(loop);
   }
+  requestAnimationFrame(loop);
+
+  canvas.addEventListener("mousemove", handleMouse);
 };
-
-
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);

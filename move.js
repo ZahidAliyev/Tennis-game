@@ -18,7 +18,6 @@ function resetBall() {
   ballXspeed = getRandomIntInclusive(4, 6);
 
   let plusOrminus = Math.random() < 0.5 ? 1 : -1;
-  console.log("resetBall -> plusOrminus", plusOrminus);
   ballYspeed = ballYspeed * plusOrminus;
 }
 
@@ -32,7 +31,6 @@ function ballMove() {
     ballXspeed = -ballXspeed;
     ballYspeed = collidePoint * 0.35;
     ballXspeed += ballXspeed*0.1;
-    console.log("move -> ballXspeed", ballXspeed)
 
   };
   if (ballX + ballRadius >= compX - compWidth && ballY >= compY && ballY <= compY+ compHeight) {
@@ -41,7 +39,6 @@ function ballMove() {
     ballXspeed = -ballXspeed;
     ballYspeed = collidePointAi * 0.35;
     ballXspeed += ballXspeed*0.1;
-    console.log("move -> ballXspeed", ballXspeed)
 
   };
 

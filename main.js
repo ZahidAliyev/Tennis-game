@@ -7,7 +7,7 @@ const canvasHeight = canvas.height;
 var winningScore = 2;
 var showWinScreen = false;
 
-var startGame = false;
+var startGame = true;
 
 var playerX = canvasWidth * 0.05;
 var playerY = 250;
@@ -36,41 +36,16 @@ var ballYspeed = 5;
 ballYspeed = ballYspeed * yDirection;
 
 window.onload = function() {
-  canvas.addEventListener("mousedown", startOnePlayer);
-
-  if (startGame == true) {
-    function loop() {
-      move();
-      someSound.play();
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-    canvas.addEventListener("mousedown", clickToContinue);
-    canvas.addEventListener("mousemove", handleMouse);
-  } else {
+  if (startGame === true) {
+    console.log("window.onload -> startGame", startGame)
+    canvas.addEventListener("mousedown", startOnePlayer);
     ctx.drawImage(table, 0, 0);
     ctx.fillText("1 Player", canvasWidth / 2 - 50, canvasHeight / 2, 100);
     ctx.fillText("2 Players", canvasWidth / 2 - 50, canvasHeight / 2 + 50, 100);
   }
 };
-function startOnePlayer(e) {
-  if (
-    e.offsetX >= 350 &&
-    e.offsetX <= 430 &&
-    e.offsetY >= 280 &&
-    e.offsetY <= 310
-  ) {
-    function loop() {
-      move();
-      someSound.play();
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-    canvas.addEventListener("mousedown", clickToContinue);
-    canvas.addEventListener("mousemove", handleMouse);
-    console.log("start");
-  }
-}
+
+
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);

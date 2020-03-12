@@ -13,8 +13,8 @@ function clickToContinue(e) {
       showWinScreen = false;
       ballXspeed = 5;
       ballYspeed = 5;
-    }
-  }
+    };
+  };
 }
 //BACK TO MENU AFTER GAME LEVEL FINISHED
 function backToMenu(e) {}

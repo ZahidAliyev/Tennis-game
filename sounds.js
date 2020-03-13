@@ -14,3 +14,12 @@ function setFormat()	{
 						audioFormat	= ".ogg";
 		}
 }
+function isMusicTurned() {
+	if(music) {
+        someSound.play();
+        musicTextOnOff = "Off";
+      } else {
+        someSound.pause();
+        musicTextOnOff = "On";
+      }
+}

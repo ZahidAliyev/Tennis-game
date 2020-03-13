@@ -4,7 +4,7 @@ ctx.font = " 30px Helvetica";
 
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
-var winningScore = 1;
+var winningScore = 2;
 var showWinScreen = false;
 
 var startGame = true;
@@ -23,44 +23,11 @@ var compWidth = 10;
 var compHeight = 100;
 var compScore = 0;
 
-//Ball parametrs
-var ballX = canvasWidth / 2;
-var ballY = canvasHeight / 2;
-var ballRadius = 10;
 
-//beginning ball random directions
-var xDirection = Math.random() < 0.5 ? 1 : -1;
-var ballXspeed = 5;
-ballXspeed = ballXspeed * xDirection;
-
-var yDirection = Math.random() < 0.5 ? 1 : -1;
-var ballYspeed = 5;
-ballYspeed = ballYspeed * yDirection;
 
 window.onload = function() {
   function loop() {
-    if (startGame === true) {
-      console.log("window.onload -> startGame", startGame)
-      canvas.addEventListener("mousedown", startOnePlayer);
-      canvas.addEventListener("mousedown", musicOnOff);
-
-      ctx.drawImage(table, 0, 0);
-      ctx.fillStyle = "white";
-      ctx.fillText("1 Player", canvasWidth / 2 - 50, canvasHeight / 2, 100);
-      ctx.fillText("2 Players", canvasWidth / 2 - 50, canvasHeight / 2 + 50, 100);
-      ctx.fillText("Music "+musicTextOnOff, canvasWidth / 2 - 50, canvasHeight / 2 + 100, 100);
-      if(music) {
-        someSound.play();
-        musicTextOnOff = "Off";
-      } else {
-        someSound.pause();
-        musicTextOnOff = "On";
-      }
-    } else {
-      canvas.addEventListener("mousedown", clickToContinue);
-      canvas.addEventListener("mousedown", backToMenu);
-      move();
-    }
+    gameStartOrEnd();
     requestAnimationFrame(loop);
   };
   requestAnimationFrame(loop);
@@ -68,8 +35,4 @@ window.onload = function() {
   canvas.addEventListener("mousemove", handleMouse);
 };
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+

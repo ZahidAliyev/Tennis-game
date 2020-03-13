@@ -45,7 +45,6 @@ function musicOnOff(e) {
     e.offsetY <= 410
   ) {
     if (startGame) {
-      console.log("music");
       if(music) {
         music = false;
       } else {

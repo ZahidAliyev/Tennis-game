@@ -36,6 +36,26 @@ function backToMenu(e) {
   }
 }
 
+// MUSIC 
+function musicOnOff(e) {
+  if (
+    e.offsetX >= 340 &&
+    e.offsetX <= 442 &&
+    e.offsetY >= 376 &&
+    e.offsetY <= 410
+  ) {
+    if (startGame) {
+      console.log("music");
+      if(music) {
+        music = false;
+      } else {
+        music = true;
+      }
+      
+    };
+  };
+}
+
 //PLAYER PADDLE MOVE
 function handleMouse(e) {
   var rect = canvas.getBoundingClientRect();
@@ -46,7 +66,7 @@ function handleMouse(e) {
 
 // START 1 PLAYER GAME
 function startOnePlayer(e) {
-  // console.log(e.offsetX, e.offsetY);
+  console.log(e.offsetX, e.offsetY);
   if (
     e.offsetX >= 350 &&
     e.offsetX <= 430 &&

@@ -8,6 +8,7 @@ var winningScore = 1;
 var showWinScreen = false;
 
 var startGame = true;
+var music = false;
 
 var playerX = canvasWidth * 0.05;
 var playerY = 250;
@@ -40,18 +41,25 @@ window.onload = function() {
     if (startGame === true) {
       console.log("window.onload -> startGame", startGame)
       canvas.addEventListener("mousedown", startOnePlayer);
+      canvas.addEventListener("mousedown", musicOnOff);
+
       ctx.drawImage(table, 0, 0);
       ctx.fillStyle = "white";
       ctx.fillText("1 Player", canvasWidth / 2 - 50, canvasHeight / 2, 100);
       ctx.fillText("2 Players", canvasWidth / 2 - 50, canvasHeight / 2 + 50, 100);
+      ctx.fillText("Music", canvasWidth / 2 - 50, canvasHeight / 2 + 100, 100);
+      if(music) {
+        someSound.play();
+      } else {
+        someSound.pause();
+      }
     } else {
       canvas.addEventListener("mousedown", clickToContinue);
       canvas.addEventListener("mousedown", backToMenu);
       move();
-      // someSound.play(); 
     }
     requestAnimationFrame(loop);
-  }
+  };
   requestAnimationFrame(loop);
 
   canvas.addEventListener("mousemove", handleMouse);

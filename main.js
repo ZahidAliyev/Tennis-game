@@ -9,6 +9,7 @@ var showWinScreen = false;
 
 var startGame = true;
 var music = false;
+var musicTextOnOff = "Off";
 
 var playerX = canvasWidth * 0.05;
 var playerY = 250;
@@ -47,11 +48,13 @@ window.onload = function() {
       ctx.fillStyle = "white";
       ctx.fillText("1 Player", canvasWidth / 2 - 50, canvasHeight / 2, 100);
       ctx.fillText("2 Players", canvasWidth / 2 - 50, canvasHeight / 2 + 50, 100);
-      ctx.fillText("Music", canvasWidth / 2 - 50, canvasHeight / 2 + 100, 100);
+      ctx.fillText("Music "+musicTextOnOff, canvasWidth / 2 - 50, canvasHeight / 2 + 100, 100);
       if(music) {
         someSound.play();
+        musicTextOnOff = "Off";
       } else {
         someSound.pause();
+        musicTextOnOff = "On";
       }
     } else {
       canvas.addEventListener("mousedown", clickToContinue);

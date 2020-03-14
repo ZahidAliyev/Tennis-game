@@ -8,8 +8,7 @@ var winningScore = 2;
 var showWinScreen = false;
 
 var startGame = true;
-var music = false;
-var musicTextOnOff = "Off";
+
 
 var playerX = canvasWidth * 0.05;
 var playerY = 250;

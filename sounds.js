@@ -2,10 +2,15 @@ var pushSound = new Audio("sounds/Hit_Hurt.wav");
 var goalSound = new Audio("sounds/goal.wav");
 var someSound = new Audio("sounds/mainMusic.mp3");
 
+
+var music = false;
+var musicTextOnOff = "Off";
+
 pushSound.volume = 0.1;
 goalSound.volume = 0.1;
 
 var	audioFormat;
+
 function setFormat()	{
 		var	audio	= new Audio();
 		if	(audio.canPlayType("audio/mp3"))	{

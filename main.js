@@ -4,10 +4,15 @@ ctx.font = " 30px Helvetica";
 
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
+
 var winningScore = 2;
+
 var showWinScreen = false;
 
 var startGame = true;
+
+var paddleWithMouse = false;
+var paddleWithKeyboard = false;
 
 
 var playerX = canvasWidth * 0.05;
@@ -22,16 +27,32 @@ var compWidth = 10;
 var compHeight = 100;
 var compScore = 0;
 
+var leftPlayerUpPressed = false;
+var leftPlayerDownPressed = false;
+var rightPlayerUpPressed = false;
+var rightPlayerDownPressed = false;
+
 
 
 window.onload = function() {
   function loop() {
-    gameStartOrEnd();
+    //gameStarting menu
+    canvas.addEventListener("mousedown", startOnePlayer);
+    canvas.addEventListener("mousedown", musicOnOff);
+    canvas.addEventListener("mousemove", playerPaddleControl);
+    canvas.addEventListener("mousedown", startTwoPlayer);
+    window.addEventListener("keydown", twoPlayerControlKeyDown);
+    window.addEventListener("keyup", twoPlayerControlKeyUp);
+    // Game end menu
+    canvas.addEventListener("mousedown", clickToContinue);
+    canvas.addEventListener("mousedown", backToMenu);
+    gameStartOrEnd();    
     requestAnimationFrame(loop);
   };
   requestAnimationFrame(loop);
 
-  canvas.addEventListener("mousemove", handleMouse);
+
+  
 };
 
 

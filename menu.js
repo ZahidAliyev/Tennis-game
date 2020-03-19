@@ -13,13 +13,12 @@ function menuGraphics() {
 
 function gameStartOrEnd() {
     if (startGame === true) {
-        canvas.addEventListener("mousedown", startOnePlayer);
-        canvas.addEventListener("mousedown", musicOnOff);
+
         menuGraphics(); 
         isMusicTurned();
       } else {
-        canvas.addEventListener("mousedown", clickToContinue);
-        canvas.addEventListener("mousedown", backToMenu);
+        
         move();
       }
 }
+

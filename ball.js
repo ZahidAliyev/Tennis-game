@@ -25,6 +25,7 @@ function resetBall() {
 
   let plusOrminus = Math.random() < 0.5 ? 1 : -1;
   ballYspeed = ballYspeed * plusOrminus;
+  ballXspeed = ballXspeed * plusOrminus;
 }
                         //FUNCTION----------BALL MOVE--------------
 function ballMove() {
